@@ -166,7 +166,7 @@ public interface Collection<E> extends Iterable<E> {
      * contains at least one element <tt>e</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.
      *
-     * 如果此集合包含指定的元素，则返回true。更正式地说，当且仅当此集合包含至少一个元素
+     * 如果此集合包含指定的元素，则返回true。更正式地说，当且仅当此集合包含至少一个元素hhh
      *
      * @param o element whose presence in this collection is to be tested
      * @return <tt>true</tt> if this collection contains the specified
