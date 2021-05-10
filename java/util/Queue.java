@@ -148,6 +148,8 @@ public interface Queue<E> extends Collection<E> {
      * {@code true} upon success and throwing an {@code IllegalStateException}
      * if no space is currently available.
      *
+     * 如果可以在不违反容量限制的情况下立即将指定的元素插入此队列，则在成功时返回{@code true}，如果当前没有可用空间，则抛出{@code IllegalStateException}。
+     *
      * @param e the element to add
      * @return {@code true} (as specified by {@link Collection#add})
      * @throws IllegalStateException if the element cannot be added at this
@@ -168,6 +170,8 @@ public interface Queue<E> extends Collection<E> {
      * preferable to {@link #add}, which can fail to insert an element only
      * by throwing an exception.
      *
+     * 如果可以在不违反容量限制的情况下立即将指定的元素插入此队列。当使用容量受限队列时，这种方法通常比{@link#add}更可取，后者只能通过抛出异常来插入元素。
+     *
      * @param e the element to add
      * @return {@code true} if the element was added to this queue, else
      *         {@code false}
@@ -185,6 +189,8 @@ public interface Queue<E> extends Collection<E> {
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
      *
+     * 检索并删除此队列的头。此方法与{@link#poll}的不同之处在于，如果此队列为空，它将引发异常。
+     *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
@@ -193,6 +199,8 @@ public interface Queue<E> extends Collection<E> {
     /**
      * Retrieves and removes the head of this queue,
      * or returns {@code null} if this queue is empty.
+     *
+     *检索并删除此队列的头，如果此队列为空，则返回{@code null}。
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
@@ -203,6 +211,8 @@ public interface Queue<E> extends Collection<E> {
      * differs from {@link #peek peek} only in that it throws an exception
      * if this queue is empty.
      *
+     * 检索但不删除此队列的头。此方法与{@link#peek-peek}的不同之处在于，如果此队列为空，它将引发异常。
+     *
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
@@ -211,6 +221,8 @@ public interface Queue<E> extends Collection<E> {
     /**
      * Retrieves, but does not remove, the head of this queue,
      * or returns {@code null} if this queue is empty.
+     *
+     * 检索但不删除此队列的头，如果此队列为空，则返回{@code null}。
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */

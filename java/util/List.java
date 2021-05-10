@@ -291,6 +291,7 @@ public interface List<E> extends Collection<E> {
      * the operation is in progress.  (Note that this will occur if the
      * specified collection is this list, and it's nonempty.)
      *
+     *
      * @param c collection containing elements to be added to this list
      * @return <tt>true</tt> if this list changed as a result of the call
      * @throws UnsupportedOperationException if the <tt>addAll</tt> operation
@@ -316,6 +317,8 @@ public interface List<E> extends Collection<E> {
      * undefined if the specified collection is modified while the
      * operation is in progress.  (Note that this will occur if the specified
      * collection is this list, and it's nonempty.)
+     *
+     * 在指定位置将指定集合中的所有元素插入此列表（可选操作）。将当前位于该位置的元素（如果有）和任何后续元素向右移动（增加其索引）。新元素将按指定集合的迭代器返回的顺序出现在此列表中。如果在操作进行过程中修改了指定的集合，则此操作的行为未定义(请注意，如果指定的集合是此列表，并且它不是空的，则会发生这种情况。）
      *
      * @param index index at which to insert the first element from the
      *              specified collection
@@ -382,6 +385,8 @@ public interface List<E> extends Collection<E> {
      * operator to that element.  Errors or runtime exceptions thrown by
      * the operator are relayed to the caller.
      *
+     * 将此列表的每个元素替换为对该元素应用运算符的结果。运算符引发的错误或运行时异常将转发给调用方。
+     *
      * @implSpec
      * The default implementation is equivalent to, for this {@code list}:
      * <pre>{@code
@@ -417,6 +422,7 @@ public interface List<E> extends Collection<E> {
     /**
      * Sorts this list according to the order induced by the specified
      * {@link Comparator}.
+     *根据指定比较器产生的顺序对该列表进行排序
      *
      * <p>All elements in this list must be <i>mutually comparable</i> using the
      * specified comparator (that is, {@code c.compare(e1, e2)} must not throw
@@ -535,7 +541,7 @@ public interface List<E> extends Collection<E> {
 
     /**
      * Returns the element at the specified position in this list.
-     *
+     *返回此列表中指定位置的元素。
      * @param index index of the element to return
      * @return the element at the specified position in this list
      * @throws IndexOutOfBoundsException if the index is out of range
@@ -547,6 +553,7 @@ public interface List<E> extends Collection<E> {
      * Replaces the element at the specified position in this list with the
      * specified element (optional operation).
      *
+     * 用指定的元素（可选操作）替换此列表中指定位置的图元。
      * @param index index of the element to replace
      * @param element element to be stored at the specified position
      * @return the element previously at the specified position
@@ -568,6 +575,7 @@ public interface List<E> extends Collection<E> {
      * (optional operation).  Shifts the element currently at that position
      * (if any) and any subsequent elements to the right (adds one to their
      * indices).
+     *在此列表中的指定位置插入指定的元素（可选操作）。将当前位于该位置的元素（如果有）和任何后续元素向右移动（将一个元素添加到其索引中）。
      *
      * @param index index at which the specified element is to be inserted
      * @param element element to be inserted
@@ -589,6 +597,7 @@ public interface List<E> extends Collection<E> {
      * operation).  Shifts any subsequent elements to the left (subtracts one
      * from their indices).  Returns the element that was removed from the
      * list.
+     *删除此列表中指定位置的元素（可选操作）。将任何后续元素向左移动（从其索引中减去一个）。返回从列表中删除的元素
      *
      * @param index the index of the element to be removed
      * @return the element previously at the specified position
@@ -609,6 +618,7 @@ public interface List<E> extends Collection<E> {
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
      *
+     *  返回此列表中指定元素第一次出现的索引，如果此列表不包含该元素，则返回-1。更正式地说，返回最低的索引（o==null？get（i）==null:o.equals（get（i）））或-1，如果没有这样的索引。
      * @param o element to search for
      * @return the index of the first occurrence of the specified element in
      *         this list, or -1 if this list does not contain the element
@@ -627,6 +637,8 @@ public interface List<E> extends Collection<E> {
      * More formally, returns the highest index <tt>i</tt> such that
      * <tt>(o==null&nbsp;?&nbsp;get(i)==null&nbsp;:&nbsp;o.equals(get(i)))</tt>,
      * or -1 if there is no such index.
+     *
+     * 返回此列表中指定元素最后一次出现的索引，如果此列表不包含该元素，则返回-1。更正式地说，返回最高索引，这样（o==null？get（i）==null:o.equals（get（i））），或-1（如果没有此类索引）
      *
      * @param o element to search for
      * @return the index of the last occurrence of the specified element in
@@ -647,6 +659,8 @@ public interface List<E> extends Collection<E> {
      * Returns a list iterator over the elements in this list (in proper
      * sequence).
      *
+     * 返回此列表中元素的列表迭代器（按正确顺序）。
+     *
      * @return a list iterator over the elements in this list (in proper
      *         sequence)
      */
@@ -659,6 +673,8 @@ public interface List<E> extends Collection<E> {
      * returned by an initial call to {@link ListIterator#next next}.
      * An initial call to {@link ListIterator#previous previous} would
      * return the element with the specified index minus one.
+     *
+     * 从列表中的指定位置开始，返回此列表中元素的列表迭代器（按属性序列）。指定的索引指示初始调用ListIterator next将返回的第一个元素。对ListIterator previous的初始调用将返回指定索引减1的元素
      *
      * @param index index of the first element to be returned from the
      *        list iterator (by a call to {@link ListIterator#next next})
@@ -679,6 +695,8 @@ public interface List<E> extends Collection<E> {
      * changes in the returned list are reflected in this list, and vice-versa.
      * The returned list supports all of the optional list operations supported
      * by this list.<p>
+     *
+     *     返回此列表中指定的fromIndex（包含）和toIndex（不包含）之间部分的视图(如果fromIndex和toIndex相等，则返回的列表为空。）返回的列表由该列表支持，因此返回列表中的非结构更改将反映在此列表中，反之亦然。返回的列表支持此列表支持的所有可选列表操作
      *
      * This method eliminates the need for explicit range operations (of
      * the sort that commonly exist for arrays).  Any operation that expects
